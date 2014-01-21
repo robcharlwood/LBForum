@@ -6,10 +6,10 @@ LBForum
 
 .. |rst| replace:: :emphasis:`re`\ :strong:`Structured`\ :sup:`Text`
 
-LBForum is a quick and simple forum which uses the Django Framework (written 
-in Python language). LBForum is a reusable Django application, can be added 
+LBForum is a quick and simple forum which uses the Django Framework (written
+in Python language). LBForum is a reusable Django application, can be added
 to any existing django project.
-LBForum is distributed under the BSD and GPL license. 
+LBForum is distributed under the BSD and GPL license.
 
 Demo site(Skin FluxBB): http://vik.haoluobo.com/lbforum/
 Demo site(Skin V2EX): http://vik.haoluobo.com/lbforum2/
@@ -33,7 +33,7 @@ Requirements
 
 * `Python 2.5+`_
 * `Django 1.3+`_
-* PIL_
+* Pillow_
 * django-pagination_
 * `south 0.7.2+`_
 * postmarkup_
@@ -45,7 +45,7 @@ Requirements
 
 .. _`Python 2.5+`: http://python.org/
 .. _`Django 1.3+`: http://www.djangoproject.com/
-.. _PIL: http://www.pythonware.com/products/pil/
+.. _Pillow: https://pillow.readthedocs.org/en/latest/
 .. _django-pagination: http://code.google.com/p/django-pagination/
 .. _`south 0.7.2+`: http://south.aeracode.org/
 .. _BeautifulSoup: http://www.crummy.com/software/BeautifulSoup/
@@ -84,7 +84,7 @@ The LBForum has some settings should be set in `settings.py`:
 
 #. Add the following app to ``INSTALLED_APPS``::
 
-    'pagination', 
+    'pagination',
     'south',
     'lbforum',
     'simpleavatar',
@@ -96,7 +96,7 @@ The LBForum has some settings should be set in `settings.py`:
 
     'pagination.middleware.PaginationMiddleware',
     'onlineuser.middleware.OnlineUserMiddleware',
-    
+
 #. add ``"djangohelper.context_processors.ctx_config",`` to ``TEMPLATE_CONTEXT_PROCESSORS``::
 
     TEMPLATE_CONTEXT_PROCESSORS = (
@@ -111,20 +111,20 @@ The LBForum has some settings should be set in `settings.py`:
     )
 
 #. setting urls for lbforum::
-    
+
     # URL prefix for lbforum media -- CSS, JavaScript and images. Make sure to use a
     # trailing slash.
-    # Examples: "http://foo.com/media/", "/media/".    
-    
+    # Examples: "http://foo.com/media/", "/media/".
+
     #The URL where requests are redirected after login
     LOGIN_REDIRECT_URL = '/'
     #The URL where requests are redirected for login
     LOGIN_URL = "/accounts/login/"
     #LOGIN_URL counterpart
     LOGOUT_URL = "/accounts/logout/"
-    #register url 
+    #register url
     REGISTER_URL = '%saccounts/register/' % ROOT_URL
-    
+
 #. vars for templates::
 
     CTX_CONFIG = {
@@ -132,12 +132,12 @@ The LBForum has some settings should be set in `settings.py`:
             'LBFORUM_SUB_TITLE': 'A forum engine written in Python using Django',
             'FORUM_PAGE_SIZE': 50,
             'TOPIC_PAGE_SIZE': 20,
-    
+
             'LOGIN_URL': LOGIN_URL,
             'LOGOUT_URL': LOGOUT_URL,
             'REGISTER_URL': REGISTER_URL,
             }
-            
+
 #. settings for BBCODE::
 
     BBCODE_AUTO_URLS = True
@@ -147,29 +147,29 @@ The LBForum has some settings should be set in `settings.py`:
     #add forbid tags
     HTML_UNSAFE_TAGS = []
     HTML_UNSAFE_ATTRS = []
-    
+
     """
-    #default html safe settings 
+    #default html safe settings
     acceptable_elements = ['a', 'abbr', 'acronym', 'address', 'area', 'b', 'big',
         'blockquote', 'br', 'button', 'caption', 'center', 'cite', 'code', 'col',
         'colgroup', 'dd', 'del', 'dfn', 'dir', 'div', 'dl', 'dt', 'em',
-        'font', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img', 
-        'ins', 'kbd', 'label', 'legend', 'li', 'map', 'menu', 'ol', 
+        'font', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img',
+        'ins', 'kbd', 'label', 'legend', 'li', 'map', 'menu', 'ol',
         'p', 'pre', 'q', 's', 'samp', 'small', 'span', 'strike',
         'strong', 'sub', 'sup', 'table', 'tbody', 'td', 'tfoot', 'th',
         'thead', 'tr', 'tt', 'u', 'ul', 'var']
     acceptable_attributes = ['abbr', 'accept', 'accept-charset', 'accesskey',
         'action', 'align', 'alt', 'axis', 'border', 'cellpadding', 'cellspacing',
         'char', 'charoff', 'charset', 'checked', 'cite', 'clear', 'cols',
-        'colspan', 'color', 'compact', 'coords', 'datetime', 'dir', 
+        'colspan', 'color', 'compact', 'coords', 'datetime', 'dir',
         'enctype', 'for', 'headers', 'height', 'href', 'hreflang', 'hspace',
         'id', 'ismap', 'label', 'lang', 'longdesc', 'maxlength', 'method',
-        'multiple', 'name', 'nohref', 'noshade', 'nowrap', 'prompt', 
+        'multiple', 'name', 'nohref', 'noshade', 'nowrap', 'prompt',
         'rel', 'rev', 'rows', 'rowspan', 'rules', 'scope', 'shape', 'size',
         'span', 'src', 'start', 'summary', 'tabindex', 'target', 'title', 'type',
         'usemap', 'valign', 'value', 'vspace', 'width', 'style']
     """
-    
+
 #. if you want to use skin v2ex, you should add the follow config to settings.py::
 
     #always show topic post in topic page.
@@ -184,7 +184,7 @@ The LBForum has some settings should be set in `settings.py`:
             os.path.join(HERE, 'templates_v2ex'),
             V2EX_TEMPLATE_DIR,
     )
-    
+
 Initialize The Database
 -----------------------
 
