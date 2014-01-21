@@ -1,3 +1,4 @@
+{% load url from future %}
 {% load i18n %}
 {% load lbforum_filters %}
 {% load lbforum_tags %}
@@ -68,7 +69,7 @@
                 <span class="need-reply">{% trans "to see the content, user must reply first." %}</span>
                 {% endif %}
                 {% if post.posted_by.lbforum_profile.signature %}
-                <div class="sig-content"> 
+                <div class="sig-content">
                     <span class="sig-line"><!-- --></span>
                     {{ post.posted_by.lbforum_profile.signature|bbcode|safe }}
                 </div>

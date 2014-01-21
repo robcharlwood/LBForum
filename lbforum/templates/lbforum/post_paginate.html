@@ -1,7 +1,8 @@
+{% load url from future %}
 {% load i18n %}
 {% if pages %}
 <span class="item-nav">
-	( 
+	(
 	<span>{% trans "Pages" %}&nbsp;</span>
 	{% for p in pages %}
 	<a href="{% url 'lbforum_topic' topic_id=topic.id %}?page={{p}}">{{p}}</a>

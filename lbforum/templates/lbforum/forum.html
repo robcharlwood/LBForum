@@ -1,5 +1,5 @@
 {% extends "lbforum/base.html" %}
-
+{% load url from future %}
 {% load i18n %}
 {% load lbforum_filters %}
 {% load lbforum_tags %}
@@ -11,7 +11,7 @@
 
 {% block content %}
 	<div id="actionbox">
-	</div>  
+	</div>
 
 	<div id="brd-wrap" class="brd">
 		<div id="brd-viewforum" class="brd-page paged-page">
@@ -35,7 +35,7 @@
                 <a class="newpost" href="{% url 'lbforum_new_topic' forum_id=forum.pk %}"><span>{% trans "Post new topic" %}</span></a>
             {% else %}
                 {% trans "You must" %} <a href="{{ LOGIN_URL }}">{% trans "Login" %}</a> {% trans "or" %} <a href="{{ REGISTER_URL }}">{% trans "register" %}</a> {% trans "to post a topic" %}
-            {% endif %} 
+            {% endif %}
         </p>
 	</div>
 	<div class="main-head">
@@ -49,13 +49,13 @@
     </div>
 
 	<div class="main-pagepost gen-content" id="brd-pagepost-end">
-        {% paginate %}	
+        {% paginate %}
 		<p class="posting">
             {% if user.is_authenticated %}
                 <a class="newpost" href="{% url 'lbforum_new_topic' forum_id=forum.pk %}"><span>{% trans "Post new topic" %}</span></a>
             {% else %}
                 {% trans "You must" %} <a href="{{ LOGIN_URL }}">{% trans "Login" %}</a> {% trans "or" %} <a href="{{ REGISTER_URL }}">{% trans "register" %}</a> {% trans "to post a topic" %}
-            {% endif %} 
+            {% endif %}
         </p>
 	</div>
 </div>

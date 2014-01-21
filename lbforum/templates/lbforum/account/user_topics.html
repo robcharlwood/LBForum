@@ -1,5 +1,5 @@
 {% extends "lbforum/base.html" %}
-
+{% load url from future %}
 {% load i18n %}
 {% load lbforum_filters %}
 {% load lbforum_tags %}
@@ -8,7 +8,7 @@
 
 {% block content %}
     <div id="actionbox">
-    </div>  
+    </div>
 
     <div id="brd-wrap" class="brd">
         <div id="brd-searchtopics" class="brd-page paged-page">
@@ -21,11 +21,11 @@
                 <p>
                     <span class="crumb crumbfirst">
                         <a href="{% url 'lbforum_index' %}">{{ LBFORUM_TITLE }}</a>
-                    </span> 
+                    </span>
                     <span class="crumb crumblast">
                         <span>&raquo;</span>
 						{% blocktrans %}Topics by {{view_user}}{% endblocktrans %}
-                    </span> 
+                    </span>
                 </p>
             </div>
 
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="main-pagepost gen-content" id="brd-pagepost-end">
-                    {% paginate %}	
+                    {% paginate %}
                     <p class="posting">
                     </p>
                 </div>
@@ -64,11 +64,11 @@
                 <p>
                     <span class="crumb crumbfirst">
                         <a href="{% url 'lbforum_index' %}">{{ LBFORUM_TITLE }}</a>
-                    </span> 
+                    </span>
                     <span class="crumb crumblast">
                         <span>&raquo;</span>
 						{% blocktrans %}Topics by {{view_user}}{% endblocktrans %}
-                    </span> 
+                    </span>
                 </p>
             </div>
 

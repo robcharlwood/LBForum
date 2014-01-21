@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load url from future %}
 {% load lbforum_filters %}
 {% load lbforum_tags %}
 <div class="main-pagehead">
@@ -7,7 +8,7 @@
         {% if forum.topictype_set.all.count %}
         <span><a class="{% if not topic_type2 %}selected{% endif %}"
                     href="{% forum_url forum topic_type "" %}">{% trans "All" %}</a></span>
-        {% for tp in forum.topictype_set.all %}     
+        {% for tp in forum.topictype_set.all %}
         <span><a class="{% if topic_type2 == tp.slug %}selected{% endif %}"
                     href="{% forum_url forum topic_type tp.slug %}">{{ tp }}</a></span>
         {% endfor %}
@@ -15,10 +16,10 @@
         {% endif %}
 
         <span>
-            <a class="{% if topic_type != "good" %}selected{% endif %}" 
+            <a class="{% if topic_type != "good" %}selected{% endif %}"
                     href="{% forum_url forum "" topic_type2 %}">{% trans "All" %}</a>
         </span>
-        <span><a class="{% if topic_type == "good" %}selected{% endif %}" 
+        <span><a class="{% if topic_type == "good" %}selected{% endif %}"
                     href="{% forum_url forum "good" topic_type2 %}">{% trans "Distillate District" %}</a></span>
         <span>|</span>
         {% endif %}
@@ -27,15 +28,15 @@
 <div class="main-subhead">
     <p class="item-summary forum-views">
         <span>
-            <strong class="subject-title">{% trans "Topics" %}</strong> in this forum with details of 
-            <strong class="info-replies">{% trans "replies" %}</strong>, 
-            <strong class="info-views">{% trans "views" %}</strong>, 
+            <strong class="subject-title">{% trans "Topics" %}</strong> in this forum with details of
+            <strong class="info-replies">{% trans "replies" %}</strong>,
+            <strong class="info-views">{% trans "views" %}</strong>,
             <strong class="info-lastpost">{% trans "last post" %}</strong>.
         </span>
     </p>
 </div>
 <div id="topicslist" class="main-content main-forum forum-views">
-    {% for topic in topics %}     
-    {% include 'lbforum/inc_topic_detail.html' %}  
+    {% for topic in topics %}
+    {% include 'lbforum/inc_topic_detail.html' %}
     {% endfor %}
 </div>

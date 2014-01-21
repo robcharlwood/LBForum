@@ -1,12 +1,12 @@
 {% extends "lbforum/base.html" %}
-
+{% load url from future %}
 {% load i18n %}
 
 {% block extra_header %}
 <meta http-equiv="refresh" content="5;URL={% block redirect_url %}{{ redirect_url }}{% endblock %}" />
 {% endblock %}
 
-{% block content %} 
+{% block content %}
 <div id="brd-wrap" class="brd-page">
 	<div id="brd-redirect" class="brd">
 		<div id="brd-main" class="main basic">
